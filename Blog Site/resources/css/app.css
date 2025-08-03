@@ -1,3 +1,9 @@
+@import url('https://use.typekit.net/qzh4run.css');
 @import 'tailwindcss';
 @tailwind base;
 @tailwind components;   
+@tailwind utilities;
+
+@theme {
+  --font-display: futura-pt, sans-serif;
+}

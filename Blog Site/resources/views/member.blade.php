@@ -22,17 +22,20 @@
                     <a href="{{ url('/') }}" class="hover:text-gray-300 transition">Home</a>
                     <a href="{{ url('/about') }}" class="hover:text-gray-300 transition">Recipes</a>
                     <a href="{{ url('/contact') }}" class="hover:text-gray-300 transition">About</a>
-                    <a href="{{ url('/blog') }}" class="hover:text-gray-300 transition">Log In</a>
+                    <a href="{{ url('/blog') }}" class="hover:text-gray-300 transition">Log Out</a>
                 </nav>
             </div>
         </header>
 
         <!-- Landing Content -->
         <section class="bg-[#fffbe8] py-12 pb-40" style= "background-image: url('{{ asset('images/Background/1.png') }}'); background-size: cover; background-position: center;">
-            <div class="text-center mb-8">
-                <h1 class="text-6xl font-bold text-[#f98323] font-display mb-8">
-                    A World of Recipes, One Pantry.
-                </h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white rounded-lg shadow p-6 max-w-3xl mx-auto my-8">
+                <div class="text-3xl font-bold text-[#f98323] font-display text-center md:text-left">
+                    {{ Auth::user()->name ?? 'Username' }}
+                </div>
+                <div class="text-2xl italic text-[#4d2100] text-center md:text-right">
+                    "What are you cooking, chef?"
+                </div>
             </div>
             <div class="w-full px-55 flex justify-between items-center">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 container mx-auto">
@@ -170,25 +173,34 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="bg-[#fffbe8] py-12 pt-40 pb-40" style= "background-image: url('{{ asset('images/Background/2.png') }}'); background-size: cover; background-position: center;">
+        <!-- Send Recipes Section -->
+        <section class="bg-[#fffbe8] py-12 pt-40 pb-40" style="background-image: url('{{ asset('images/Background/2.png') }}'); background-size: cover; background-position: center;">
             <div>
-                <h2 class="text-6xl text-[#f98323] font-bold mb-4 text-center font-display">What is The Pantry?</h2>
+                <h2 class="text-6xl text-[#f98323] font-bold mb-10 text-center font-display">Have a Recipe?</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 px-55">
-                <div class="p-6 flex items-center justify-center">
-                    <img src="{{ asset('images\About us\photo 1.jpg') }}" alt="About The Pantry" class="w-200 h-100 object-cover rounded-lg shadow-lg">
-                </div>
-                <div class="p-6">
-                    <p class="font-display text-4xl text-[#4d2100] text-center mb-4">
-                        The Pantry is a community-driven recipe platform where food enthusiasts can share, discover, and enjoy a wide variety of recipes. From quick weeknight dinners to elaborate holiday feasts, we have something for everyone.
-                    </p>
-                    <p class="font-display text-4xl text-[#4d2100] text-center mb-4">
-                        Our mission is to inspire home cooks of all skill levels to explore new flavors and techniques, making cooking a joyful and rewarding experience.
-                    </p>
-                </div>
-                <div class="p-6 flex items-center justify-center">
-                    <img src="{{ asset('images\About us\photo 2.jpg') }}" alt="About The Pantry" class="w-200 h-100 object-cover rounded-lg shadow-lg">
+            <div class="max-w-6xl mx-auto bg-white rounded-lg shadow-lg p-10">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                    <!-- Left: Image -->
+                    <div class="flex items-center justify-center">
+                        <img src="{{ asset('images/About us/photo 1.jpg') }}" alt="Share Your Recipe" class="w-100 h-100 object-cover rounded-lg shadow">
+                    </div>
+                    <!-- Right: Form -->
+                    <form action="{{ url('/submit-recipe') }}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                        @csrf
+                        <div>
+                            <label class="block text-2xl font-display text-[#4d2100] mb-2" for="title">Recipe Title</label>
+                            <input type="text" id="title" name="title" required class="w-full p-3 rounded border border-[#f98323] focus:outline-none focus:ring-2 focus:ring-[#f98323] text-xl">
+                        </div>
+                        <div>
+                            <label class="block text-2xl font-display text-[#4d2100] mb-2" for="description">Description</label>
+                            <textarea id="description" name="description" rows="3" required class="w-full p-3 rounded border border-[#f98323] focus:outline-none focus:ring-2 focus:ring-[#f98323] text-xl"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-2xl font-display text-[#4d2100] mb-2" for="image">Recipe Image</label>
+                            <input type="file" id="image" name="image" accept="image/*" class="w-full text-xl border border-[#f98323] rounded p-3 focus:outline-none focus:ring-2 focus:ring-[#f98323] hover:bg-[#f98323] hover:text-white transition">
+                        </div>
+                        <button type="submit" class="bg-[#f98323] text-white font-display text-2xl px-6 py-2 rounded hover:bg-[#d46e0c] transition">Submit Recipe</button>
+                    </form>
                 </div>
             </div>
         </section>
