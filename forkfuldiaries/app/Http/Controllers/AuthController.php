@@ -22,6 +22,34 @@ class AuthController extends Controller
         return view('back.layout.pages.auth.login', $data);
     }
 
+    public function signupForm(Request $request){
+        $data = [
+            'pageTitle' => 'Sign Up'
+        ];
+        return view('user.layout.pages.auth.signup', $data);
+    }
+
+    public function signupHandler(Request $request)
+{
+    $request->validate([
+        'name' => 'required|string|max:255',
+        'email' => 'required|email|unique:users,email',
+        'username' => 'required|string|unique:users,username',
+        'password' => 'required|string|min:5|confirmed',
+    ]);
+
+    $user = User::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'username' => $request->username,
+        'password' => Hash::make($request->password),
+        'type' => 'user',
+        'status' => 'pending',
+    ]);
+
+    return redirect()->route('login')->with('success', 'Account created! Please wait for approval.');
+}
+
     public function forgotForm(Request $request){
         $data = [
             'pageTitle' => 'Forgot Password'
@@ -83,6 +111,8 @@ class AuthController extends Controller
             ');
         }
     } // End Method
+
+
 
     public function sendPasswordResetLink(Request $request) {
         //Validate the form 
@@ -207,7 +237,6 @@ class AuthController extends Controller
             return redirect()->route('admin.reset_password_form', ['token'=>$dbToken->token])->with(
                 'fail','Something went wrong, try again.' );
         }
-
 
     }
 

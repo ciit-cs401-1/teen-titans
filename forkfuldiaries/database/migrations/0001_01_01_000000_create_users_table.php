@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('picture')->nullable();
             $table->text('bio')->nullable();
-            $table->string('type')->default('admin');
-            $table->string('status')->default('pending');
+            $table->string('type')->default('user');
+            $table->string('status')->default('active');
             $table->rememberToken();
             $table->timestamps();
         });
