@@ -223,7 +223,7 @@
 						<div
 							class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list"
 						>
-							<a class="dropdown-item" href="profile.html"
+							<a class="dropdown-item" href="{{ route('user.profile') }}"
 								><i class="dw dw-user1"></i> Profile</a
 							>
 							<a class="dropdown-item" href="profile.html"
@@ -451,11 +451,11 @@
 						
 						<li>
 							<a
-								href=""
+								href="{{ route('user.profile') }}"
 								class="dropdown-toggle no-arrow"
 							>
 								<span class="micon fa fa-user-circle"></span>
-								<span class="mtext"
+								<span class="mtext" 
 									>Profile
 									</span>
 							</a>

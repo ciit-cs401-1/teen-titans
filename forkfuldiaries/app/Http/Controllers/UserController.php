@@ -14,6 +14,13 @@ class UserController extends Controller
         return view('user.layout.pages.dashboard', $data);
     }
 
+    public function userProfile(Request $request){
+        $data = [
+            'pageTitle' => 'Profile'
+        ];
+        return view('user.layout.pages.profile', $data);
+    }
+
     public function logoutHandler(Request $request){
         Auth::logout();
         $request->session()->invalidate();

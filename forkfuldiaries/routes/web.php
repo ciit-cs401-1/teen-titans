@@ -24,13 +24,16 @@ Route::get('/signup', [AuthController::class, 'signupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signupHandler'])->name('user.signup_handler');
 
 Route::get('/', function(){
-    return view('user.layout.pages-layout');
+    return view('back.layout.pages.welcome');
 })->name('welcome');
 
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
 Route::get('/user/dashboard', function() {
     return view('user.layout.pages.dashboard');
 })->name('user.dashboard');
+
+Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
+
 
 /**
  * ADMIN ROUTES
