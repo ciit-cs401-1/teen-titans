@@ -443,40 +443,6 @@
 						</li>
 
 						<li>
-							<a href="" class="dropdown-toggle no-arrow">
-								<span class="micon fa fa-th-list"></span
-								><span class="mtext">Categories</span>
-							</a>
-						</li>
-
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon fa fa-newspaper-o"></span
-								><span class="mtext"> Posts </span>
-							</a>
-							<ul class="submenu">
-								<li><a href="">New</a></li>
-								<li><a href="">Posts</a></li>
-							</ul>
-						</li>
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon fa fa-shopping-bag"></span
-								><span class="mtext">Shop</span>
-							</a>
-							<ul class="submenu">
-								<li><a href="">New product</a></li>
-								<li><a href="">All product</a></li>
-							</ul>
-						</li>
-						
-						<li>
-							<a href="invoice.html" class="dropdown-toggle no-arrow">
-								<span class="micon bi bi-receipt-cutoff"></span
-								><span class="mtext">Invoice</span>
-							</a>
-						</li>
-						<li>
 							<div class="dropdown-divider"></div>
 						</li>
 						<li>
@@ -491,18 +457,6 @@
 								<span class="micon fa fa-user-circle"></span>
 								<span class="mtext"
 									>Profile
-									</span>
-							</a>
-						</li>
-
-						<li>
-							<a
-								href=""
-								class="dropdown-toggle no-arrow"
-							>
-								<span class="micon fa fa-cogs"></span>
-								<span class="mtext"
-									>General
 									</span>
 							</a>
 						</li>

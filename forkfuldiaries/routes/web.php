@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Admin\RecipeController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\Admin\ProfileController;
+use Symfony\Component\HttpKernel\Profiler\Profile;
 
 /**
  * TESTING ROUTES
@@ -22,7 +24,7 @@ Route::get('/signup', [AuthController::class, 'signupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signupHandler'])->name('user.signup_handler');
 
 Route::get('/', function(){
-    return view('back.layout.pages.welcome');
+    return view('user.layout.pages-layout');
 })->name('welcome');
 
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
@@ -58,9 +60,14 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
 
         // Recipes route handled by its own controller
-        Route::controller(RecipeController::class)->group(function () {
-            Route::get('/recipe', 'adminRecipe')->name('recipe');
+        Route::controller(ProfileController::class)->group(function () {
+            Route::get('/profile', 'adminProfile')->name('profile');
             Route::post('/admin-logout', 'logoutHandler')->name("admin_logout");
         });
     });
 });
+
+
+/**
+ * USER ROUTES
+ */

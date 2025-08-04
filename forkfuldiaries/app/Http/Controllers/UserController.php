@@ -1,18 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class RecipeController extends Controller
+class UserController extends Controller
 {
-    public function adminRecipe(Request $request){
+    public function userDashboard(Request $request){
         $data = [
             'pageTitle' => 'Dashboard'
         ];
-        return view('back.layout.pages.recipe', $data);
+        return view('user.layout.pages.dashboard', $data);
     }
 
     public function logoutHandler(Request $request){
@@ -23,4 +22,3 @@ class RecipeController extends Controller
     }
 
 }
-

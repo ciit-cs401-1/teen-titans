@@ -442,30 +442,12 @@
 						</li>
 
 						<li>
-							<a href="{{ route('admin.recipe') }}" class="dropdown-toggle no-arrow">
-								<span class="micon fa fa-th-list"></span
-								><span class="mtext">Recipes</span>
-							</a>
-						</li>
-
-						<li class="dropdown">
-							<a href="javascript:;" class="dropdown-toggle">
-								<span class="micon fa fa-newspaper-o"></span
-								><span class="mtext"> Posts </span>
-							</a>
-							<ul class="submenu">
-								<li><a href="">New</a></li>
-								<li><a href="">Posts</a></li>
-							</ul>
-						</li>
-						
-						<li>
 							<div class="sidebar-small-cap">Settings</div>
 						</li>
 						
 						<li>
 							<a
-								href=""
+								href="{{ route('admin.profile')}}"
 								class="dropdown-toggle no-arrow"
 							>
 								<span class="micon fa fa-user-circle"></span>
@@ -474,20 +456,6 @@
 									</span>
 							</a>
 						</li>
-
-						<li>
-							<a
-								href=""
-								class="dropdown-toggle no-arrow"
-							>
-								<span class="micon fa fa-cogs"></span>
-								<span class="mtext"
-									>General
-									</span>
-							</a>
-						</li>
-
-
 
 					</ul>
 				</div>

@@ -156,7 +156,7 @@
 
 
     {{-- Analytics --}}
-    <div class="mt-20">
+    <div class="mt-20 mb-30">
         <h2 class="text-2xl font-bold mb-4">Analytics</h2>
         <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -175,5 +175,35 @@
             </div>
         </div>
     </div>
-        Page content here....
+    
+    {{-- All Recipes --}}
+    <div class="mb-30">
+        <h2 class="text-2xl font-bold mb-4">All Recipes</h2>
+        <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
+                <ul>
+                <li class="border-b last:border-b-0 py-4">
+                        <div class="ml-4">
+                        <div>
+                                <a class="font-semibold text-xl text-blue-600 hover:underline">Chocolate Cake</a>
+                                <span class="text-xl text-gray-500"> (Submitted by Alice)</span>
+                        </div>
+                        <div class="flex items-center mt-2 ml-8">
+                                <button href="#" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">View Link</button>
+                        </div>
+                        </div>
+                </li>
+                <li class="border-b last:border-b-0 py-4">
+                        <div class="ml-4">
+                        <div>
+                                <a class="font-semibold text-xl text-blue-600 hover:underline">Vegan Tacos</a>
+                                <span class="text-xl text-gray-500"> (Submitted by Bob)</span>
+                        </div>
+                        <div class="flex items-center mt-2 ml-8">
+                                <button href="#" class="bg-gray-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">View Link</button>
+                        </div>
+                        </div>
+                </li>
+                </ul>
+        </div>
+    </div>
 @endsection
