@@ -57,6 +57,13 @@
 										
 									</div>
 								</div>
+                                <div class="row mt-2">
+                                    <div class="col-sm-12 text-center">
+                                        <a href="{{ route('signup') }}" class="btn btn-outline-primary btn-block">Sign Up</a>
+                                    </div>
+                                </div>
+								
+								
 							</form>
 						</div>
 @endsection
