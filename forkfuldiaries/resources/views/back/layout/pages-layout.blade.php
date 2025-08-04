@@ -46,8 +46,8 @@
 
         @stack('stylesheets')
 	</head>
-	<body>
-		<div class="pre-loader">
+	<body class="bg-[#fffbe8] py-12 pb-40" style= "background-image: url('{{ asset('images/Background/1.png') }}'); background-size: cover; background-position: center;">
+		<div class="pre-loader bg-[#fffbe8] py-12 pb-40" style= "background-image: url('{{ asset('images/Background/2.png') }}'); background-size: cover; background-position: center;">
 			<div class="pre-loader-box">
 				<div class="loader-logo">
 					<img src="\back\vendors\images\Forkful Logo.svg" alt="" />
@@ -56,7 +56,7 @@
 					<div class="bar" id="bar1"></div>
 				</div>
 				<div class="percent" id="percent1">0%</div>
-				<div class="loading-text">Loading...</div>
+				<div class="loading-text font-display">Loading...</div>
 			</div>
 		</div>
 
@@ -417,7 +417,7 @@
 		</div>
 
 		<div class="left-side-bar">
-			<div class="brand-logo">
+			<div class="brand-logo bg-[#d49c77] py-12 pb-40">
 				<a href="{{ route('admin.dashboard')}}">
 					<img src="\back\vendors\images\Forkful Diaries-Name Logo.svg" alt="" class="dark-logo" />
 					<img
@@ -430,7 +430,7 @@
 					<i class="ion-close-round"></i>
 				</div>
 			</div>
-			<div class="menu-block customscroll">
+			<div class="menu-block customscroll bg-[#d49c77] py-12 pb-40">
 				<div class="sidebar-menu">
 					<ul id="accordion-menu">
 						

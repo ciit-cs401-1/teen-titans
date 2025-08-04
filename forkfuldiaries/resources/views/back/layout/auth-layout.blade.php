@@ -46,7 +46,7 @@
 		<link rel="stylesheet" type="text/css" href="/back/vendors/styles/style.css" />
         @stack('stylesheets')
 	</head>
-	<body class="login-page">
+	<body class="login-page bg-[#fffbe8] py-12 pb-40" style= "background-image: url('{{ asset('images/Background/3.png') }}'); background-size: cover; background-position: center;">
 		<div class="login-header box-shadow">
 			<div
 				class="container-fluid d-flex justify-content-between align-items-center"

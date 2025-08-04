@@ -24,7 +24,7 @@ Route::get('/signup', [AuthController::class, 'signupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signupHandler'])->name('user.signup_handler');
 
 Route::get('/', function(){
-    return view('back.layout.pages.welcome');
+    return view('user.layout.pages.auth.login');
 })->name('welcome');
 
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');

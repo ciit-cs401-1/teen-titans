@@ -1,7 +1,9 @@
 @extends('back.layout.auth-layout')
 @section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title Here')
+@vite('resources/css/app.css')
+@vite('resources/js/app.js')
 @section('content')
-    <div class="login-box bg-white box-shadow border-radius-10">
+    <div class="font-display login-box bg-white box-shadow border-radius-10">
 							<div class="login-title">
 								<h2 class="text-center text-primary">Forgot Password</h2>
 							</div>
