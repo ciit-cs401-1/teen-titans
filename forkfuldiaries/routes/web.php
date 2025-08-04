@@ -66,8 +66,3 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
     });
 });
-
-
-/**
- * USER ROUTES
- */

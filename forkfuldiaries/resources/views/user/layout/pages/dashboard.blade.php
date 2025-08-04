@@ -1,5 +1,7 @@
 @extends('user.layout.pages-layout')
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title Here')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'User Dashboard')
+@vite('resources/css/app.css')
+@vite('resources/js/app.js')
 @section('content')
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center bg-white rounded-lg shadow p-6 max-w-3xl mx-auto my-8">
@@ -10,5 +12,5 @@
             "What are you cooking, chef?"
         </div>
     </div>
-    Page content here....
+
 @endsection

@@ -3,10 +3,13 @@
 @vite('resources/css/app.css')
 @vite('resources/js/app.js')
 @section('content')
+   <div class="mt-10 ml-8" x-data="{ editing: false }">
+
+    {{-- Page Title Outside the Box --}}
     <h2 class="text-3xl font-bold mb-4">Your Profile</h2>
 
     {{-- Profile Box --}}
-    <div class="bg-white p-6 rounded shadow">
+    <div class="p-6">
 
         {{-- Profile View --}}
         <div x-show="!editing" x-cloak>
@@ -60,5 +63,6 @@
             </form>
         </div>
 
+    </div>
     </div>
 @endsection
