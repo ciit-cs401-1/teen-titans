@@ -28,8 +28,10 @@ Route::get('/welcome', function(){
     return view('back.layout.pages.welcome');
 })->name('welcome');
 
-
-
+Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+Route::get('/user/dashboard', function() {
+    return view('user.layout.pages.dashboard');
+})->name('user.dashboard');
 
 /**
  * ADMIN ROUTES

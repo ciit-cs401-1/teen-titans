@@ -47,7 +47,7 @@ class AuthController extends Controller
         'status' => 'pending',
     ]);
 
-    return redirect()->route('login')->with('success', 'Account created! Please wait for approval.');
+    return redirect()->route('login_form')->with('success', 'Account created successfully. Please log in.');
 }
 
     public function forgotForm(Request $request){
@@ -84,31 +84,18 @@ class AuthController extends Controller
             'password'=>$request->password,
         );
 
-        if( Auth::attempt($creds) ){
+        if (Auth::attempt($creds)) {
+            $user = Auth::user();
 
-            //Check if account is inactive mode
-            if( Auth::user()->status == UserStatus::Inactive ){
-                Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
-                return redirect()->route('admin.login')->with('fail', 'Your account is currently inactive. Please contact support at (support@forkfuldiaries) 
-                for further assistance.');
+            if ($user->type === UserType::Admin || $user->type === UserType::SuperAdmin) {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->type === UserType::User) {
+                return redirect()->route('user.dashboard');
             }
-
-            //Check if account is pending mode
-            if( Auth::user()->status == UserStatus::Pending ){
-                Auth::logout();
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
-                return redirect()->route('admin.login')->with('fail', 'Your account is currently pending for approval. Please check your email for further instructions or
-                contact support at (support@forkfuldiaries) for further assistance.');
-            }
-            
-            //Redirect user to dashboard
-            return redirect()->route('admin.dashboard');
-        }else{
-            return redirect()->route('admin.login')->withInput()->with('fail','Incorrect password.
-            ');
+            // Optionally handle other types or default
+            return redirect()->route('login_form')->with('fail', 'Unknown user type.');
+        } else {
+            return redirect()->route('login_form')->with('fail', 'Invalid credentials.');
         }
     } // End Method
 
