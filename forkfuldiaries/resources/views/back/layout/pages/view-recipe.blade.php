@@ -1,0 +1,29 @@
+@extends('back.layout.pages-layout')
+@section('pageTitle', 'View Recipe')
+
+@section('content')
+<div class="bg-white shadow-lg rounded-lg p-6 max-w-4xl mx-auto mt-10">
+    <h1 class="text-3xl font-bold text-[#f98323] mb-4">{{ $recipe->recipes_name }}</h1>
+    <p class="text-lg text-gray-700 italic mb-2">Submitted by: <strong>{{ $recipe->user->name }}</strong></p>
+
+    <div class="mt-6">
+        <h2 class="text-xl font-semibold text-[#4d2100]">Recipe File</h2>
+        <a href="{{ asset('storage/' . $recipe->recipes_file) }}" 
+           class="inline-block mt-2 text-blue-600 underline hover:text-blue-800" 
+           target="_blank">
+            View Attached File
+        </a>
+    </div>
+
+    <div class="mt-6">
+        <h2 class="text-xl font-semibold text-[#4d2100] mb-2">Description / Notes</h2>
+        <p class="text-gray-800 leading-relaxed">
+            {{ $recipe->description ?? 'No description provided.' }}
+        </p>
+    </div>
+
+    <div class="mt-8">
+        <a href="{{ route('admin.dashboard') }}" class="text-white bg-gray-800 px-4 py-2 rounded hover:bg-gray-600">Back to Dashboard</a>
+    </div>
+</div>
+@endsection

@@ -6,6 +6,10 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\ProfileController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
+<<<<<<< Updated upstream
+=======
+use App\Http\Controllers\RecipeController;
+>>>>>>> Stashed changes
 
 /**
  * TESTING ROUTES
@@ -17,7 +21,12 @@ Route::view('/example-auth','example-auth');
 
 # Route for Login tisting
 Route::view('/login', 'user.layout.pages.auth.login')->name('login');
+<<<<<<< Updated upstream
 Route::get('login', [AuthController::class, 'loginForm'])->name('login_form');
+=======
+Route::get('/login', [AuthController::class, 'loginForm'])->name('login');
+
+>>>>>>> Stashed changes
 
 # Route for sign up page testing
 Route::get('/signup', [AuthController::class, 'signupForm'])->name('signup');
@@ -28,12 +37,23 @@ Route::get('/', function(){
 })->name('welcome');
 
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
+<<<<<<< Updated upstream
 Route::get('/user/dashboard', function() {
     return view('user.layout.pages.dashboard');
 })->name('user.dashboard');
 
 Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
 
+=======
+Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('user.dashboard');
+
+
+Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
+
+
+ Route::post('/recipes/{id}/approve', [RecipeController::class, 'approve'])->name('recipes.approve');
+Route::post('/recipes/{id}/deny', [RecipeController::class, 'deny'])->name('recipes.deny');
+>>>>>>> Stashed changes
 
 /**
  * ADMIN ROUTES
@@ -68,4 +88,21 @@ Route::prefix('admin')->name('admin.')->group(function () {
             Route::post('/admin-logout', 'logoutHandler')->name("admin_logout");
         });
     });
+<<<<<<< Updated upstream
 });
+=======
+
+    Route::prefix('users')->name('users.')->group(function () {
+    Route::post('/{user}/approve', [AdminController::class, 'approveUser'])->name('approve');
+    Route::post('/{user}/deny', [AdminController::class, 'denyUser'])->name('deny');
+    Route::get('/{user}/edit', [AdminController::class, 'editUser'])->name('edit');
+});
+
+});
+
+Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/recipes/{id}', [AdminController::class, 'viewRecipe'])->name('recipes.view');
+});
+
+
+>>>>>>> Stashed changes

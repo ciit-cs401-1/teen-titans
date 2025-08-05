@@ -8,7 +8,11 @@ use App\Models\User;
 use App\UserType;
 use App\UserStatus;
 
+<<<<<<< Updated upstream
 class AdminController extends Controller
+=======
+class SignupController extends Controller
+>>>>>>> Stashed changes
 {
     public function showRegistrationForm(Request $request){
         return view('signup');

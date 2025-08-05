@@ -12,6 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
+<<<<<<< Updated upstream
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -24,6 +25,24 @@ return new class extends Migration
             $table->string('status')->default('active');
             $table->rememberToken();
             $table->timestamps();
+=======
+            $table->id(); // Primary key
+            $table->string('name')->comment('Full name of the user');
+            $table->string('email')->unique()->comment('User email, must be unique');
+            $table->string('username')->unique()->comment('Unique username for the user');
+            $table->timestamp('email_verified_at')->nullable()->comment('When the user verified their email');
+            $table->string('password')->comment('Hashed password');
+            
+            // Extra fields from ERD
+            $table->string('picture')->nullable()->comment('Profile picture path or filename');
+            $table->text('bio')->nullable()->comment('User biography or description');
+            $table->string('type')->default('user')->comment('User type: admin, moderator, regular, etc.');
+            $table->string('status')->default('active')->comment('Account status: active, suspended, etc.');
+
+            // Auth-related
+            $table->rememberToken()->comment('Used for "remember me" login functionality');
+            $table->timestamps(); // created_at and updated_at
+>>>>>>> Stashed changes
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
@@ -47,8 +66,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
-        Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
+        Schema::dropIfExists('password_reset_tokens');
+        Schema::dropIfExists('users');
     }
 };

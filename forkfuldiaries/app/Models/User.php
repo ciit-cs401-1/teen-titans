@@ -56,4 +56,10 @@ class User extends Authenticatable
         'type' => UserType::class,
        ];
     }
+
+    public function recipes()
+   {
+    return $this->hasMany(Recipe::class);
+   }
+
 }
