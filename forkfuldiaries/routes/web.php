@@ -16,7 +16,7 @@ Route::view('/example-page', function() {
 Route::view('/example-auth','example-auth');
 
 # Route for Login tisting
-Route::view('/login', 'back.layout.pages.auth.login')->name('login');
+Route::view('/login', 'user.layout.pages.auth.login')->name('login');
 Route::get('login', [AuthController::class, 'loginForm'])->name('login_form');
 
 # Route for sign up page testing
@@ -24,7 +24,7 @@ Route::get('/signup', [AuthController::class, 'signupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signupHandler'])->name('user.signup_handler');
 
 Route::get('/', function(){
-    return view('user.layout.pages.auth.login');
+    return view('back.layout.pages.welcome');
 })->name('welcome');
 
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
