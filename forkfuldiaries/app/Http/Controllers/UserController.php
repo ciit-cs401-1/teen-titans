@@ -9,16 +9,21 @@ class UserController extends Controller
 {
     public function userDashboard(Request $request){
         $topViewedRecipes = \App\Models\Recipe::with('user')
-            ->orderByDesc('recipes_views')
-            ->take(5)
-            ->get();
+        ->where('status', 'approved')
+        ->orderByDesc('recipes_views')
+        ->take(5)
+        ->get();
 
-        $allRecipes = \App\Models\Recipe::with('user')->latest()->get();
+        $allRecipes = \App\Models\Recipe::with('user')
+            ->where('status', 'approved')
+            ->latest()
+            ->get();
 
         $data = [
             'topViewedRecipes' => $topViewedRecipes,
             'allRecipes' => $allRecipes
         ];
+
         return view('user.layout.pages.dashboard', $data);
     }
 
