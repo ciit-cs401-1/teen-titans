@@ -48,7 +48,7 @@ public function approveUser(User $user)
 
 public function denyUser(User $user)
 {
-    $user->update(['status' => 'suspended']);
+    $user->update(['status' => 'rejected']);
     return back()->with('success', 'User denied and suspended.');
 }
 
