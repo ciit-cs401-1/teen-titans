@@ -52,8 +52,8 @@
 				class="container-fluid d-flex justify-content-between align-items-center"
 			>
 				<div class="brand-logo">
-					<a href="login.html">
-						<img src="\back\vendors\images\Forkful Diaries-Name Logo.svg" alt="" />
+					<a href="{{ route('welcome') }}">
+						<img src="/back/vendors/images/Forkful Diaries-Name Logo.svg" alt="" />
 					</a>
 				</div>
 				<div class="login-menu">

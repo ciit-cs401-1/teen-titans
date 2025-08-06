@@ -15,7 +15,7 @@
 
     {{-- Pending Recipes --}}
    <h2 class="text-2xl font-bold mb-4">Pending Recipes</h2>
-<div class="bg-white shadow-lg rounded-lg p-6 mb-8">
+<div class="bg-white shadow-lg rounded-lg p-6 mb-20">
     <ul>
         @foreach($pendingRecipes as $recipe)
             <li class="border-b last:border-b-0 py-4">
@@ -26,7 +26,7 @@
                     </div>
                     <div class="flex items-center mt-2 ml-8">
                         <a href="{{ route('recipes.show', $recipe->id) }}" 
-                            class="text-blue-600 underline hover:text-blue-800 mr-6" 
+                            class="text-blue-600 underline hover:text-blue-800 mr-10" 
                             target="_blank">
                             View Recipe
                         </a>
@@ -76,7 +76,7 @@
         {{-- Toggle Buttons --}}
         <div class="flex space-x-4 mb-4">
             <button 
-                class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 transition-colors"
+                class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 transition-colors mr-10"
                 :class="{ 'bg-blue-900': showPending }"
                 @click="showPending = true"
             >
@@ -178,7 +178,7 @@
     
     {{-- All Recipes --}}
 <div class="mb-30 font-display">
-    <p class="text-2xl font-bold text-center">Total Recipes</p>
+    <h2 class="text-2xl font-bold mb-4">Total Recipes</h2>
     <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
         <ul>
             @foreach ($approvedRecipes as $recipe)
