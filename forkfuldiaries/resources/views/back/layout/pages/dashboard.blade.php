@@ -187,7 +187,7 @@
                         <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
                             <div>
                                 <a class="font-semibold text-3xl text-blue-600 hover:underline">
-                                    {{ $recipe->title }}
+                                    {{ $recipe->recipes_name }}
                                 </a>
                                 <span class="text-xl text-gray-900"> (Submitted by {{ $recipe->user->name ?? 'Admin' }})</span>
                             </div>
