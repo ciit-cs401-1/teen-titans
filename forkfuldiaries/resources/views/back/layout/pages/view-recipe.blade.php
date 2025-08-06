@@ -7,12 +7,10 @@
     <p class="text-lg text-gray-700 italic mb-2">Submitted by: <strong>{{ $recipe->user->name }}</strong></p>
 
     <div class="mt-6">
-        <h2 class="text-xl font-semibold text-[#4d2100]">Recipe File</h2>
-        <a href="{{ asset('storage/' . $recipe->recipes_file) }}" 
-           class="inline-block mt-2 text-blue-600 underline hover:text-blue-800" 
-           target="_blank">
-            View Attached File
-        </a>
+        <h2 class="text-xl font-semibold text-[#4d2100] mb-2">Recipe Content</h2>
+        <div class="bg-gray-100 p-4 rounded text-gray-900 whitespace-pre-wrap">
+            {{ $recipe->recipes_file }}
+        </div>
     </div>
 
     <div class="mt-6">

@@ -43,4 +43,9 @@ class RecipeController extends Controller
 
         return redirect()->back()->with('success', 'Recipe submitted successfully!');
     }
+
+    public function show(Recipe $recipe)
+        {
+            return view('back.layout.pages.view-recipe', compact('recipe'));
+        }
 }

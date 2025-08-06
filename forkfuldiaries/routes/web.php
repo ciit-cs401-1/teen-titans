@@ -42,6 +42,8 @@ Route::post('/recipes/{id}/deny', [RecipeController::class, 'deny'])->name('reci
 Route::post('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
 Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
 
+Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+
 /**
  * ADMIN ROUTES
  */

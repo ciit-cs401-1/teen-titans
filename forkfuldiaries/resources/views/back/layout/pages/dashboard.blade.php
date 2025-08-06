@@ -25,7 +25,11 @@
                         <span class="text-xl text-gray-500">(Submitted by {{ $recipe->user->name }})</span>
                     </div>
                     <div class="flex items-center mt-2 ml-8">
-                        <a href="{{ asset('storage/' . $recipe->recipes_file) }}" class="text-blue-600 underline hover:text-blue-800 mr-6" target="_blank">View File</a>
+                        <a href="{{ route('recipes.show', $recipe->id) }}" 
+                            class="text-blue-600 underline hover:text-blue-800 mr-6" 
+                            target="_blank">
+                            View Recipe
+                        </a>
                         <form action="{{ route('recipes.approve', $recipe->id) }}" method="POST" class="mr-2">
                             @csrf
                             <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">Approve</button>
