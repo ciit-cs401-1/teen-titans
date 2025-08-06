@@ -74,8 +74,8 @@
 
             <div>
                 <label for="recipes_file" class="block text-lg font-semibold mb-2">Recipe Details</label>
-                <input type="text" name="recipes_file" id="recipes_file" required
-                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300">
+                <textarea type="text" name="recipes_file" id="recipes_file" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300"></textarea>
             </div>
 
             <div>
