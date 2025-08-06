@@ -5,7 +5,6 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\ProfileController;
-use Symfony\Component\HttpKernel\Profiler\Profile;
 use App\Http\Controllers\RecipeController;
 use App\Http\Controllers\WelcomeController;
 
@@ -43,7 +42,7 @@ Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.
 
 Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 Route::get('/user/recipes/{recipe}', [RecipeController::class, 'showUser'])->name('user.recipes.show');
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.view');
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 
 /**
  * ADMIN ROUTES
@@ -89,6 +88,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
+
+    Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.view');
 });
+
+Route::put('/user/profile/update', [UserController::class, 'updateProfile'])->name('user.profile.update');
 
 

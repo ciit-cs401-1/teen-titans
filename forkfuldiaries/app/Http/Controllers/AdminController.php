@@ -17,7 +17,8 @@ class AdminController extends Controller
     $pendingCount = Recipe::where('status', 'pending')->count();
     $userCount = User::count();
 
-    $pendingUsers = User::where('is_approved', false)->get();
+    // Only users with status 'pending'
+    $pendingUsers = User::where('status', 'pending')->get();
     $allUsers = User::all();
 
     return view('back.layout.pages.dashboard', [
@@ -40,16 +41,16 @@ class AdminController extends Controller
 
     
 public function approveUser(User $user)
-    {
-    $user->update(['is_approved' => true]);
+{
+    $user->update(['status' => 'active']);
     return back()->with('success', 'User approved successfully.');
-    }
+}
 
 public function denyUser(User $user)
-    {
-    $user->delete(); // or maybe just mark them as rejected if you want
-    return back()->with('success', 'User denied and deleted.');
-    }
+{
+    $user->update(['status' => 'suspended']);
+    return back()->with('success', 'User denied and suspended.');
+}
 
 public function editUser(User $user)
     {

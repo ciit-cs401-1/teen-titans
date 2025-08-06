@@ -28,7 +28,7 @@ class SignupController extends Controller
             'password' => bcrypt($request->password),
             'username' => $request->username,
             'type' => UserType::User, // Assuming a default user type
-            'status' => UserStatus::Active, // Assuming a default active status
+            'status' => UserStatus::Pending, // Assuming a default active status
         ]);
 
         Auth::login($user);
