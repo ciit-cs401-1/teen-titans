@@ -12,7 +12,7 @@
     <div class="mt-6">
         <h2 class="text-xl font-semibold text-[#4d2100] mb-2">Recipe Content</h2>
         <div class="bg-gray-100 p-4 rounded text-gray-900 whitespace-pre-wrap">
-            {{ $recipe->recipes_file }}
+            <p>{!! nl2br(e($recipe->recipes_file)) !!}</p>
         </div>
     </div>
 
