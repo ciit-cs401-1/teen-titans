@@ -60,7 +60,7 @@
 
 <!-- Recipe Submission Modal -->
 <div id="recipeModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 hidden">
-    <div class="bg-white shadow-lg rounded-lg p-6 max-w-xl w-full relative">
+    <div class="bg-white shadow-lg rounded-lg p-5 max-w-xl w-full relative">
         <button onclick="toggleRecipeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl font-bold">&times;</button>
 
         <h2 class="text-2xl font-bold mb-4">Submit a New Recipe</h2>
@@ -78,9 +78,9 @@
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300">
             </div>
 
-            <div class="flex justify-end">
+            <div class="flex justify-end py-2">
                 <button type="submit"
-                    class="bg-gray-900 text-white px-6 py-2 rounded hover:bg-green-600 transition-colors">
+                    class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors">
                     Submit Recipe
                 </button>
             </div>
