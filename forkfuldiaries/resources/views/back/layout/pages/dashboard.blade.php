@@ -166,11 +166,11 @@
                 </div>
                 <div class="bg-green-100 p-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2 text-center">Total Users</h3>
-                    <p class="text-2xl font-bold text-center">75</p>
+                    <p class="text-2xl font-bold text-center">{{ $userCount}}</p>
                 </div>
                 <div class="bg-yellow-100 p-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2 text-center">Pending Recipes</h3>
-                    <p class="text-2xl font-bold text-center">10</p>
+                    <p class="text-2xl font-bold text-center">{{ $pendingCount }}</p>
                 </div>
             </div>
         </div>
