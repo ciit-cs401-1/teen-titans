@@ -1,3 +1,5 @@
+@php use Illuminate\Support\Str; @endphp
+
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -70,100 +72,32 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full px-55">
                 <div class="p-6">
                     <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex items-center gap-4">
-                            <img src="{{ asset('images/Recipes/mashed-potato.jpg') }}" alt="Mashed Potato" class="w-50 h-50 object-cover rounded mb-0">
-                            <div>
-                                <h3 class="font-display text-4xl text-[#4d2100] font-semibold mb-2">Mashed Potato</h3>
-                                <p class="font-display text-[#4d2100] mb-2 text-2xl">Quick 30-min mashed potato with rich creamy gravy.</p>
-                                <a href="{{ url('/recipe-of-the-day') }}" class="font-display text-[#f98323] text-3xl hover:underline">Recipe Here</a>
+                        @foreach($latestRecipes as $recipe)
+                            <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex items-center gap-4">
+                                <img src="{{ $recipe->image ? asset('storage/' . $recipe->image) : asset('images/Recipes/default.jpg') }}" alt="{{ $recipe->recipes_name }}" class="w-50 h-50 object-cover rounded mb-0">
+                                <div>
+                                    <h3 class="font-display text-4xl text-[#4d2100] font-semibold mb-2">{{ $recipe->recipes_name }}</h3>
+                                    <p class="font-display text-[#4d2100] mb-2 text-2xl">{{ Str::words($recipe->recipes_file, 20, '...') }}</p>
+                                    <a href="{{ route('user.recipes.show', $recipe->id) }}" class="font-display text-[#f98323] text-3xl hover:underline">Recipe Here</a>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex items-center gap-4">
-                            <img src="{{ asset('images/Recipes/mashed-potato.jpg') }}" alt="Mashed Potato" class="w-50 h-50 object-cover rounded mb-0">
-                            <div>
-                                <h3 class="font-display text-4xl text-[#4d2100] font-semibold mb-2">Mashed Potato</h3>
-                                <p class="font-display text-[#4d2100] mb-2 text-2xl">Quick 30-min mashed potato with rich creamy gravy.</p>
-                                <a href="{{ url('/recipe-of-the-day') }}" class="font-display text-[#f98323] text-3xl hover:underline">Recipe Here</a>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex items-center gap-4">
-                            <img src="{{ asset('images/Recipes/mashed-potato.jpg') }}" alt="Mashed Potato" class="w-50 h-50 object-cover rounded mb-0">
-                            <div>
-                                <h3 class="font-display text-4xl text-[#4d2100] font-semibold mb-2">Mashed Potato</h3>
-                                <p class="font-display text-[#4d2100] mb-2 text-2xl">Quick 30-min mashed potato with rich creamy gravy.</p>
-                                <a href="{{ url('/recipe-of-the-day') }}" class="font-display text-[#f98323] text-3xl hover:underline">Recipe Here</a>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex items-center gap-4">
-                            <img src="{{ asset('images/Recipes/mashed-potato.jpg') }}" alt="Mashed Potato" class="w-50 h-50 object-cover rounded mb-0">
-                            <div>
-                                <h3 class="font-display text-4xl text-[#4d2100] font-semibold mb-2">Mashed Potato</h3>
-                                <p class="font-display text-[#4d2100] mb-2 text-2xl">Quick 30-min mashed potato with rich creamy gravy.</p>
-                                <a href="{{ url('/recipe-of-the-day') }}" class="font-display text-[#f98323] text-3xl hover:underline">Recipe Here</a>
-                            </div>
-                        </div>
-                        <div class="bg-white p-4 rounded-lg shadow hover:shadow-lg transition flex items-center gap-4">
-                            <img src="{{ asset('images/Recipes/mashed-potato.jpg') }}" alt="Mashed Potato" class="w-50 h-50 object-cover rounded mb-0">
-                            <div>
-                                <h3 class="font-display text-4xl text-[#4d2100] font-semibold mb-2">Mashed Potato</h3>
-                                <p class="font-display text-[#4d2100] mb-2 text-2xl">Quick 30-min mashed potato with rich creamy gravy.</p>
-                                <a href="{{ url('/recipe-of-the-day') }}" class="font-display text-[#f98323] text-3xl hover:underline">Recipe Here</a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="p-6">
                     <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col justify-center">
                         <div class="space-y-3">
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">1.</span>
-                                    <a href="{{ url('/top1-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 1</a>
+                            @foreach($topViewedRecipes as $i => $recipe)
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-2">
+                                        <span class="font-display text-4xl font-bold text-[#8b4016]">{{ $i + 1 }}.</span>
+                                        <a href="{{ route('user.recipes.show', $recipe->id) }}" class="text-3xl text-[#f98323] hover:underline font-semibold">
+                                            {{ $recipe->recipes_name }}
+                                        </a>
+                                    </div>
+                                    <span class="text-xl text-gray-900">Views: {{ $recipe->recipes_views }}</span>
                                 </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">2.</span>
-                                    <a href="{{ url('/top2-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 2</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">3.</span>
-                                    <a href="{{ url('/top3-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 3</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">4.</span>
-                                    <a href="{{ url('/top4-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 4</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">5.</span>
-                                    <a href="{{ url('/top5-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 5</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">6.</span>
-                                    <a href="{{ url('/top6-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 6</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">7.</span>
-                                    <a href="{{ url('/top7-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 7</a>
-                                </div>
-                            </div>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <span class="font-display text-4xl font-bold text-[#8b4016]">8.</span>
-                                    <a href="{{ url('/top8-viewed-page') }}" class="text-3xl text-[#f98323] hover:underline font-semibold">Recipe Name 8</a>
-                                </div>
-                            </div>
-                            <!-- Add more recipes as needed -->
+                            @endforeach
                         </div>
                     </div>
                 </div>

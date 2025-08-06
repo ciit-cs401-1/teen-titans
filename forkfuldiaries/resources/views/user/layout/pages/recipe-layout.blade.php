@@ -32,7 +32,7 @@
 {{-- Back button --}}
 <div class="max-w-4xl mx-auto p-4 text-center">
     <div class="inline-block bg-blue-900 px-8 py-4 rounded-md hover:bg-blue-700 transition-colors shadow">
-        <a href="{{ route('admin.dashboard') }}" class="text-white text-xl mr-2 ml-2">
+        <a href="{{ route('user.dashboard') }}" class="text-white text-xl mr-2 ml-2">
             Back to Dashboard
         </a>
     </div>  

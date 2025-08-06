@@ -56,4 +56,11 @@ class RecipeController extends Controller
         {
             return view('back.layout.pages.view-recipe', compact('recipe'));
         }
+
+    public function showUser($id)
+    {
+        $recipe = \App\Models\Recipe::with('user')->findOrFail($id);
+        $recipe->increment('recipes_views'); // Increment views
+        return view('user.layout.pages.recipe-layout', compact('recipe'));
+    }
 }

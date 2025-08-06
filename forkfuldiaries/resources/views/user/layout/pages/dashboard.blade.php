@@ -27,7 +27,11 @@
                                 <p class="text-xl text-black-400">Views: {{ $recipe->recipes_views }}</p>
                             </div>
                             <div class="flex items-center mt-2 ml-8">
-                                <button class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">View Recipe</button>
+                                <form action="{{ route('user.recipes.show', $recipe->id) }}" method="GET">
+                                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">
+                                        View Recipe
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     </li>
@@ -49,7 +53,11 @@
                                 <span class="text-xl text-gray-900"> (Submitted by {{ $recipe->user->name }})</span>
                         </div>
                         <div class="flex items-center mt-2 ml-8">
-                                <button href="#" class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">View Link</button>
+                                <form action="{{ route('user.recipes.show', $recipe->id) }}" method="GET">
+                                    <button type="submit" class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">
+                                        View Recipe
+                                    </button>
+                                </form>
                         </div>
                         </div>
                 </li>

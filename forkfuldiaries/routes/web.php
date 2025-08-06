@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\Admin\ProfileController;
 use Symfony\Component\HttpKernel\Profiler\Profile;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\WelcomeController;
 
 /**
  * TESTING ROUTES
@@ -25,9 +26,7 @@ Route::post('/login', [AuthController::class, 'loginHandler'])->name('login_hand
 Route::get('/signup', [AuthController::class, 'signupForm'])->name('signup');
 Route::post('/signup', [AuthController::class, 'signupHandler'])->name('user.signup_handler');
 
-Route::get('/', function(){
-    return view('back.layout.pages.welcome');
-})->name('welcome');
+Route::get('/', [WelcomeController::class, 'index'])->name('welcome');
 
 Route::get('/admin/dashboard', [AdminController::class, 'adminDashboard'])->name('admin.dashboard');
 Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('user.dashboard');
@@ -43,6 +42,7 @@ Route::post('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe
 Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
 
 Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+Route::get('/user/recipes/{recipe}', [RecipeController::class, 'showUser'])->name('user.recipes.show');
 
 /**
  * ADMIN ROUTES
