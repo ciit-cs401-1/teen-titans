@@ -36,8 +36,11 @@ Route::get('/user/dashboard', [UserController::class, 'userDashboard'])->name('u
 Route::get('/user/profile', [UserController::class, 'userProfile'])->name('user.profile');
 
 
- Route::post('/recipes/{id}/approve', [RecipeController::class, 'approve'])->name('recipes.approve');
+Route::post('/recipes/{id}/approve', [RecipeController::class, 'approve'])->name('recipes.approve');
 Route::post('/recipes/{id}/deny', [RecipeController::class, 'deny'])->name('recipes.deny');
+
+Route::post('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
+Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
 
 /**
  * ADMIN ROUTES
