@@ -14,41 +14,6 @@
     </div>
 
     {{-- Pending Recipes --}}
-<<<<<<< Updated upstream
-    <div class="mb-30 font-display">
-        <h2 class="text-2xl font-bold mb-4">Pending Recipes</h2>
-        <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
-            <ul>
-                <li class="border-b last:border-b-0 py-4">
-                    <div class="ml-4">
-                        <div>
-                            <span class="font-semibold text-3xl">Chocolate Cake</span>
-                            <span class="text-xl text-gray-900">(Submitted by Alice)</span>
-                        </div>
-                        <div class="flex items-center mt-2 ml-8">
-                            <a href="#" class="text-blue-900 underline hover:text-blue-800 mr-20">View File</a>
-                            <button class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">Add Recipe</button>
-                            <button class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">Deny Recipe</button>
-                        </div>
-                    </div>
-                </li>
-                <li class="border-b last:border-b-0 py-4">
-                    <div class="ml-4">
-                        <div>
-                            <span class="font-semibold text-3xl">Vegan Tacos</span>
-                            <span class="text-xl text-gray-900">(Submitted by Bob)</span>
-                        </div>
-                        <div class="flex items-center mt-2 ml-8">
-                            <a href="#" class="text-blue-900 underline hover:text-blue-800 mr-20">View File</a>
-                            <button class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">Add Recipe</button>
-                            <button class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-red-600 transition-colors">Deny Recipe</button>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </div>
-=======
    <h2 class="text-2xl font-bold mb-4">Pending Recipes</h2>
 <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
     <ul>
@@ -75,7 +40,6 @@
         @endforeach
     </ul>
 </div> 
->>>>>>> Stashed changes
 
 
     {{-- <h2 class="text-2xl font-bold mb-4">Pending Recipes</h2>
@@ -100,100 +64,6 @@
     </div> --}}
 
     {{-- User Management --}}
-<<<<<<< Updated upstream
-    <div class="mt-20 mb-30 font-display">
-        <h2 class="text-2xl font-bold mb-4">User Management</h2>
-        <div x-data="{ showPending: true }" class="mb-8">
-            <div class="flex space-x-4 mb-4">
-                <button 
-                    class="px-4 py-2 rounded bg-blue-500 text-white hover:bg-blue-700 transition-colors mr-2"
-                    :class="{ 'bg-blue-900': showPending }"
-                    @click="showPending = true"
-                >Pending Approvals</button>
-                <button 
-                    class="px-4 py-2 rounded bg-gray-500 text-white hover:bg-gray-700 transition-colors"
-                    :class="{ 'bg-gray-900': !showPending }"
-                    @click="showPending = false"
-                >All Users</button>
-            </div>
-
-            {{-- Pending User Approvals Table --}}
-            <div x-show="showPending">
-                <h3 class="text-xl font-semibold mb-2">Pending User Approvals</h3>
-                <table class="min-w-full bg-white border mb-8">
-                    <thead>
-                        <tr>
-                            <th class="py-2 px-4 border-b text-2xl">Name</th>
-                            <th class="py-2 px-4 border-b text-2xl">Email</th>
-                            <th class="py-2 px-4 border-b text-2xl">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-4 border-b text-xl">Jane Doe</td>
-                            <td class="py-2 px-4 border-b text-xl">jane@example.com</td>
-                            <td class="py-2 px-4 border-b space-x-2 text-xl">
-                                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition-colors">Approve</button>
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors">Deny</button>
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors">Edit</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b text-xl">John Smith</td>
-                            <td class="py-2 px-4 border-b text-xl">john@example.com</td>
-                            <td class="py-2 px-4 border-b space-x-2 text-xl">
-                                <button class="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600 transition-colors">Approve</button>
-                                <button class="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors">Deny</button>
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors">Edit</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            {{-- All Users Table --}}
-            <div x-show="!showPending">
-                <h3 class="text-l font-semibold mb-2">All Users</h3>
-                <table class="min-w-full bg-white border mb-8">
-                    <thead>
-                        <tr>
-                            <th class="py-2 px-4 border-b text-2xl">Name</th>
-                            <th class="py-2 px-4 border-b text-2xl">Email</th>
-                            <th class="py-2 px-4 border-b text-2xl">Role</th>
-                            <th class="py-2 px-4 border-b text-2xl">Actions</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="py-2 px-4 border-b text-xl">Jane Doe</td>
-                            <td class="py-2 px-4 border-b text-xl">jane@example.com</td>
-                            <td class="py-2 px-4 border-b text-xl">User</td>
-                            <td class="py-2 px-4 border-b text-xl">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors">Edit</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b text-xl">John Smith</td>
-                            <td class="py-2 px-4 border-b text-xl">john@example.com</td>
-                            <td class="py-2 px-4 border-b text-xl">Admin</td>
-                            <td class="py-2 px-4 border-b text-xl">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors">Edit</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="py-2 px-4 border-b text-xl">Alice Lee</td>
-                            <td class="py-2 px-4 border-b text-xl">alice@example.com</td>
-                            <td class="py-2 px-4 border-b text-xl">User</td>
-                            <td class="py-2 px-4 border-b text-xl">
-                                <button class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600 transition-colors">Edit</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-=======
 <div class="mt-20 mb-30 font-display">
     <h2 class="text-2xl font-bold mb-4">User Management</h2>
 
@@ -279,7 +149,6 @@
 
     </div>
 </div>
->>>>>>> Stashed changes
 
 
     {{-- Analytics --}}
@@ -289,11 +158,7 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <div class="bg-blue-100 p-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2 text-center">Total Recipes</h3>
-<<<<<<< Updated upstream
-                    <p class="text-2xl font-bold text-center">150</p>
-=======
                     <p class="text-2xl font-bold text-center">{{ $totalRecipes }}</p>
->>>>>>> Stashed changes
                 </div>
                 <div class="bg-green-100 p-4 rounded-lg">
                     <h3 class="text-xl font-semibold mb-2 text-center">Total Users</h3>
@@ -308,37 +173,6 @@
     </div>
     
     {{-- All Recipes --}}
-<<<<<<< Updated upstream
-    <div class="mb-30 font-display">
-        <h2 class="text-2xl font-bold mb-4">All Recipes</h2>
-        <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
-                <ul>
-                <li class="border-b last:border-b-0 py-4">
-                        <div class="ml-4">
-                        <div>
-                                <a class="font-semibold text-3xl text-blue-600 hover:underline">Chocolate Cake</a>
-                                <span class="text-xl text-gray-900"> (Submitted by Alice)</span>
-                        </div>
-                        <div class="flex items-center mt-2 ml-8">
-                                <button href="#" class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">View Link</button>
-                        </div>
-                        </div>
-                </li>
-                <li class="border-b last:border-b-0 py-4">
-                        <div class="ml-4">
-                        <div>
-                                <a class="font-semibold text-3xl text-blue-600 hover:underline">Vegan Tacos</a>
-                                <span class="text-xl text-gray-900"> (Submitted by Bob)</span>
-                        </div>
-                        <div class="flex items-center mt-2 ml-8">
-                                <button href="#" class="bg-gray-900 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors mr-2">View Link</button>
-                        </div>
-                        </div>
-                </li>
-                </ul>
-        </div>
-    </div>
-=======
 <div class="mb-30 font-display">
     <p class="text-2xl font-bold text-center">Total Recipes</p>
     <div class="bg-white shadow-lg rounded-lg p-6 mb-8">
@@ -368,5 +202,4 @@
 </div>
 
 
->>>>>>> Stashed changes
 @endsection

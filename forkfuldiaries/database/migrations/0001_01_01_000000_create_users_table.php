@@ -12,20 +12,6 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('users', function (Blueprint $table) {
-<<<<<<< Updated upstream
-            $table->id();
-            $table->string('name');
-            $table->string('email')->unique();
-            $table->string('username')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('picture')->nullable();
-            $table->text('bio')->nullable();
-            $table->string('type')->default('user');
-            $table->string('status')->default('active');
-            $table->rememberToken();
-            $table->timestamps();
-=======
             $table->id(); // Primary key
             $table->string('name')->comment('Full name of the user');
             $table->string('email')->unique()->comment('User email, must be unique');
@@ -42,7 +28,6 @@ return new class extends Migration
             // Auth-related
             $table->rememberToken()->comment('Used for "remember me" login functionality');
             $table->timestamps(); // created_at and updated_at
->>>>>>> Stashed changes
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {
