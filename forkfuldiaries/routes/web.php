@@ -43,6 +43,7 @@ Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.
 
 Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
 Route::get('/user/recipes/{recipe}', [RecipeController::class, 'showUser'])->name('user.recipes.show');
+Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.view');
 
 /**
  * ADMIN ROUTES
@@ -87,7 +88,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
 });
 
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
-    Route::get('/recipes/{id}', [AdminController::class, 'viewRecipe'])->name('recipes.view');
+    Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 
