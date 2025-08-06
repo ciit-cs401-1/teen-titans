@@ -14,6 +14,7 @@ class Recipe extends Model
         'recipes_views',
         'recipes_file',
         'user_id',
+        'image',
     ];
 
     // Define relationship to User

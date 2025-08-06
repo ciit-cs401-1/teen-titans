@@ -31,7 +31,14 @@ class RecipeController extends Controller
         $validated = $request->validate([
             'recipes_name' => 'required|string|max:255',
             'recipes_file' => 'required|string',
+            'image' => 'nullable|image|max:2048',
         ]);
+
+        $imagePath = null;
+        if ($request->hasFile('image')) {
+            $image = $request->file('image');
+            $imagePath = $image->store('recipe_images', 'public'); // Store image
+        }
 
         // Create the recipe entry
         Recipe::create([
@@ -39,6 +46,7 @@ class RecipeController extends Controller
             'recipes_file' => $validated['recipes_file'],
             'recipes_views' => 0, // default value
             'user_id' => Auth::id(), // current logged in user
+            'image' => $imagePath, // store image path
         ]);
 
         return redirect()->back()->with('success', 'Recipe submitted successfully!');

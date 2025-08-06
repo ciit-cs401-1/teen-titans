@@ -64,7 +64,7 @@
         <button onclick="toggleRecipeModal()" class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl font-bold">&times;</button>
 
         <h2 class="text-2xl font-bold mb-4">Submit a New Recipe</h2>
-        <form action="{{ route('recipe.submit') }}" method="POST" class="space-y-6">
+        <form action="{{ route('recipe.submit') }}" method="POST" class="space-y-6" enctype="multipart/form-data">
             @csrf
             <div>
                 <label for="recipes_name" class="block text-lg font-semibold mb-2">Recipe Name</label>
@@ -75,6 +75,12 @@
             <div>
                 <label for="recipes_file" class="block text-lg font-semibold mb-2">Recipe Details</label>
                 <input type="text" name="recipes_file" id="recipes_file" required
+                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300">
+            </div>
+
+            <div>
+                <label for="image" class="block text-lg font-semibold mb-2">Upload Image (optional)</label>
+                <input type="file" name="image" accept="image/*" id="image" required
                     class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-300">
             </div>
 
