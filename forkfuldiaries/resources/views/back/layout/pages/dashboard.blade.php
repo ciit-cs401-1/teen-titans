@@ -1,5 +1,5 @@
 @extends('back.layout.pages-layout')
-@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Page Title Here')
+@section('pageTitle', isset($pageTitle) ? $pageTitle : 'Admin Dashboard')
 @vite('resources/css/app.css')
 @vite('resources/js/app.js')
 @section('content')
@@ -131,7 +131,6 @@
                         <th class="py-2 px-4 text-left">Name</th>
                         <th class="py-2 px-4 text-left">Email</th>
                         <th class="py-2 px-4 text-left">Role</th>
-                        <th class="py-2 px-4 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -140,12 +139,14 @@
                             <td class="py-2 px-4 border-b text-xl">{{ $user->name }}</td>
                             <td class="py-2 px-4 border-b text-xl">{{ $user->email }}</td>
                             <td class="py-2 px-4 border-b text-xl">
-                                {{ $user->is_admin ? 'Admin' : 'User' }}
+                                @if ($user->type === 'superAdmin')
+                                    Super Admin
+                                @elseif ($user->type === 'admin')
+                                    Admin
+                                @else
+                                    User
+                                @endif
                             </td>
-                            <td class="py-2 px-4 border-b text-xl">
-                                <a href="{{ route('admin.users.edit', $user->id) }}" class="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600">Edit</a>
-                            </td>
-                        </tr>
                     @endforeach
                 </tbody>
             </table>

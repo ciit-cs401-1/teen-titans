@@ -14,12 +14,14 @@
     <body>
         <header class="bg-[#af7051] text-white p-5 font-display">
             <div class="w-full px-55 flex justify-between items-center">
-            <!-- Logo / Title -->
-                <h1 class="text-4xl font-bold">
-                    <a href="{{ url('/') }}" class="hover:text-gray-300">Forkful Diaries</a>
+                <!-- Logo / Title -->
+                <h1 class="text-4xl font-bold flex items-center gap-4">
+                    <a href="{{ url('/') }}" class="flex items-center gap-4 hover:text-gray-300">
+                        <img src="{{ asset('back/vendors/images/Forkful Logo.svg') }}" alt="Forkful Diaries Logo" class="h-12 w-auto">
+                        Forkful Diaries
+                    </a>
                 </h1>
-
-            <!-- Navigation -->
+                <!-- Navigation -->
                 <nav class="space-x-15 font-display text-3xl font-semibold">
                     <a href="{{ url('/') }}" class="hover:text-gray-300 transition">Home</a>
                     <a href="#latest-recipes" class="hover:text-gray-300 transition">Recipes</a>
