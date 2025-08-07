@@ -25,7 +25,7 @@
                         <span class="text-xl text-gray-500">(Submitted by {{ $recipe->user->name }})</span>
                     </div>
                     <div class="flex items-center mt-2 ml-8">
-                        <a href="{{ route('recipes.show', $recipe->id) }}" 
+                        <a href="{{ route('admin.recipes.show', $recipe->id) }}" 
                             class="text-blue-600 underline hover:text-blue-800 mr-10" 
                             target="_blank">
                             View Recipe

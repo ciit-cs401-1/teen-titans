@@ -1,4 +1,4 @@
-@extends('back.layout.pages-layout')
+@extends('user.layout.pages-layout')
 @section('pageTitle', 'View Recipe')
 @vite('resources/css/app.css')
 @vite('resources/js/app.js')

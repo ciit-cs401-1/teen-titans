@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -436,9 +435,9 @@
 					<ul id="accordion-menu">
 						
 						<li>
-							<a href="{{ route('user.dashboard')}}" class="dropdown-toggle no-arrow">
-								<span class="micon fa fa-home color-[#4d2100]"></span
-								><span class="mtext">Home</span>
+							<a href="{{ route('user.dashboard') }}" class="dropdown-toggle no-arrow">
+								<span class="micon fa fa-home color-[#4d2100]"></span>
+								<span class="mtext">Home</span>
 							</a>
 						</li>
 
