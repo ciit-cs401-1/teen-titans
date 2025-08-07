@@ -40,9 +40,10 @@ Route::post('/recipes/{id}/deny', [RecipeController::class, 'deny'])->name('reci
 Route::post('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
 Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.submit');
 
-Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('admin.recipes.show');
 Route::get('/user/recipes/{recipe}', [RecipeController::class, 'showUser'])->name('user.recipes.show');
-Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+// Removed duplicate route for /recipes/{recipe} to avoid conflicts
+
 
 /**
  * ADMIN ROUTES
@@ -89,7 +90,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
 Route::middleware(['auth'])->prefix('admin')->name('admin.')->group(function () {
     Route::put('profile/update', [ProfileController::class, 'update'])->name('profile.update');
 
-    Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.view');
+    Route::get('/recipes/{recipe}', [RecipeController::class, 'show'])->name('recipes.show');
+    Route::get('/recipes/view/{recipe}', [RecipeController::class, 'show'])->name('recipes.view'); // <-- Add this line
 });
 
 Route::put('/user/profile/update', [UserController::class, 'updateProfile'])->name('user.profile.update');
