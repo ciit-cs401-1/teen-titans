@@ -42,7 +42,6 @@ Route::get('/recipe/submit', [RecipeController::class, 'submit'])->name('recipe.
 
 Route::get('/admin/recipes/{recipe}', [RecipeController::class, 'show'])->name('admin.recipes.show');
 Route::get('/user/recipes/{recipe}', [RecipeController::class, 'showUser'])->name('user.recipes.show');
-// Removed duplicate route for /recipes/{recipe} to avoid conflicts
 
 
 /**
@@ -63,7 +62,6 @@ Route::prefix('admin')->name('admin.')->group(function () {
         });
     });
 
-    // Routes that need authentication (add your middleware like 'auth:admin' if needed)
     Route::middleware([])->group(function () {
 
         // Admin dashboard and logout
